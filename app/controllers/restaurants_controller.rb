@@ -1,8 +1,11 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
-  # GET /restaurants
-  # GET /restaurants.json
+
+  def top
+    @top_restaurants = Restaurant.where(stars: 5)
+  end
+
   def index
     @restaurants = Restaurant.all
   end
